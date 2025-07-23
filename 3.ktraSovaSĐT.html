@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .Success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Nhập 1 số hoặc số điện thoại:</h2>
+    <input type="text" id="nhap" placeholder="VD: 123 hoặc 0912345678">
+    <button onclick="ktra()">Check</button>
+    <p id="KQ"></p>
+     
+    <script>
+        function ktra() {
+            const nhap = document.getElementById ("nhap"). value. trim();
+            const KQ = document.getElementById("KQ")
+
+            if (nhap === "") {
+                KQ.textContent = "Vui lòng nhập vào ô trống.";
+                KQ.className = "Error";
+            }
+
+            else if (!/^\d+$/.test(nhap)) {
+                KQ.textContent = "Không hợp lệ";
+                KQ.className = "Error";
+
+            }
+
+            else if (/^0\d{9}$/.test(nhap)) {
+                KQ.textContent = "Đây là số điện thoại";
+                KQ.className = "Success";
+            }
+
+            else {
+                KQ.textContent = "Đây là số";
+                KQ.className = "Success";
+            }
+        }
+    </script>
+</body>
+</html>

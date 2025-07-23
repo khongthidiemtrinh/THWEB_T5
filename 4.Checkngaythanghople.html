@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Check ngày</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-
-  <h3>Nhập ngày (DD-MM-YYYY)</h3>
+  <h3>Nhập ngày (DD-MM-YYYY):</h3>
   <input id="ngay" placeholder="VD: 31-12-2024">
-  <button onclick="kiemtra()">Check</button>
-  <p id="kq"></p>
+  <button onclick="kiemTra()">Check</button>
+  <p id="kq"></p> 
 
   <script>
-    function kiemtra() {
-      const input = document.getElementById("ngay").value.trim();
-      const mauNgay = /^(\d{2})-(\d{2})-(\d{4})$/;
-      const ketqua = input.mauNgay(pattern);
+    function kiemTra() {
+      const text = document.getElementById("ngay").value.trim();
+      const kq = document.getElementById("kq");
 
-      if (!ketqua) {
-        document.getElementById("kq").textContent = "Sai định dạng! (DD-MM-YYYY)";
+      const re = /^(\d{2})-(\d{2})-(\d{4})$/;
+      const match = text.match(re);
+
+      if (!match) {
+        kq.textContent = "Sai định dạng! (DD-MM-YYYY)";
         return;
       }
 
-      const day = parseInt(match[1]);
-      const month = parseInt(match[2]) - 1; // JS đếm tháng từ 0
-      const year = parseInt(match[3]);
+      const ngay = match[1];
+      const thang = match[2];
+      const nam = match[3];
 
-      const date = new Date(year, month, day);
+      const date = new Date(nam, thang - 1, ngay);
 
-      // So sánh lại với các phần đã nhập
       if (
-        date.getFullYear() === year &&
-        date.getMonth() === month &&
-        date.getDate() === day
+        date.getDate() == ngay &&
+        date.getMonth() + 1 == thang &&
+        date.getFullYear() == nam
       ) {
-        document.getElementById("kq").textContent = "Hợp lệ";
-      } else {
-        document.getElementById("kq").textContent = "Không hợp lệ";
+        kq.textContent = "Ngày hợp lệ";
+      }
+      
+      else {
+        kq.textContent = "Ngày không hợp lệ";
       }
     }
   </script>
-
 </body>
 </html>
