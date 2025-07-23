@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="data" placeholder="Nhập gì đó..">
+    <button onclick="hi()">Click</button>
+    <p id="KQ"></p>
+
+    <script>
+        function hi() {
+            const input = document.getElementById("data").value;
+            
+            const ketqua= document.getElementById("KQ");
+            
+            if (input === ""){
+                ketqua.textContent= "Ban chưa nhập gì cả.";
+            }
+            else if ( !isNaN(input)) {
+                ketqua.textContent= "Bạn mới vừa nhập số.";
+            }
+            else {
+                ketqua.textContent= "Bạn mới vừa nhập text"
+                const cut = input.split(" ");
+                const lastname = cut[cut.length - 1];
+                ketqua.textContent = "Bạn mới vừa nhập text. Hello " + lastname;
+            }
+        }
+        
+    </script>
+</body>
+</html>

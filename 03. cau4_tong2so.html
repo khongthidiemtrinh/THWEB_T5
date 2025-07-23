@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Tổng hai số -> in console và web</h3>
+        <input type="text" id="so1" placeholder="Nhập số thứ nhất..">
+        <input type="text" id="so2" placeholder="Nhập số thứ hai..">
+        <button onclick="Sum()">Sum</button>
+        <p id="KQ"></p>
+
+        <script>
+            function Sum(){
+                const num1 = Number( document.getElementById ("so1").value);
+                const num2 = Number(document.getElementById ("so2").value);
+                const tong= num1 + num2;
+                console.log ("Tổng hai số là: " + tong);  
+                document.getElementById("KQ").textContent = "Tổng = " + tong;
+            }          
+            
+        </script>
+        
+      
+
+    
+
+</body>
+</html>

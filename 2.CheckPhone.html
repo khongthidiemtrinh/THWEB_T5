@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .Success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>Nhập số điện thoại</h3>
+    <input type="text" id="phone" placeholder="VD:0911003482">
+    <button onclick="checkphone()">Click</button>
+    <p id="KQ"></p>
+
+    <script>
+        function checkphone() {
+            const phone = document.getElementById("phone").value.trim();
+            const KQ = document.getElementById("KQ");
+
+            if (phone === "") {
+                KQ.textContent = "Vui lòng nhập số điện thoại";
+                KQ.className = "Error";
+            }
+
+            else if (!/^0\d{9}$/.test(phone)) {
+                KQ.textContent = "Không hợp lệ";
+                KQ.className = "Error";
+            }
+
+            else {
+                KQ.textContent = "Hợp lệ";
+                KQ.className = "Success"
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check ngày</title>
+</head>
+<body>
+
+  <h3>Nhập ngày (DD-MM-YYYY)</h3>
+  <input id="ngay" placeholder="VD: 31-12-2024">
+  <button onclick="kiemtra()">Check</button>
+  <p id="kq"></p>
+
+  <script>
+    function kiemtra() {
+      const input = document.getElementById("ngay").value.trim();
+      const mauNgay = /^(\d{2})-(\d{2})-(\d{4})$/;
+      const ketqua = input.mauNgay(pattern);
+
+      if (!ketqua) {
+        document.getElementById("kq").textContent = "Sai định dạng! (DD-MM-YYYY)";
+        return;
+      }
+
+      const day = parseInt(match[1]);
+      const month = parseInt(match[2]) - 1; // JS đếm tháng từ 0
+      const year = parseInt(match[3]);
+
+      const date = new Date(year, month, day);
+
+      // So sánh lại với các phần đã nhập
+      if (
+        date.getFullYear() === year &&
+        date.getMonth() === month &&
+        date.getDate() === day
+      ) {
+        document.getElementById("kq").textContent = "Hợp lệ";
+      } else {
+        document.getElementById("kq").textContent = "Không hợp lệ";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>cau01 Console->Hello A</h2>
+        <input type="text" id="Name" placeholder="Nhập tên của bạn..">
+        <button onclick="hello()">Click</button>
+
+        <script>
+            function hello(){
+                const hoten= document.getElementById("Name"). value.trim();
+                const cat = hoten.split(" ");
+                const ten = cat[cat.length -1];
+                console.log("Hello "+ ten);
+            }
+        </script>
+
+    <h2>cau02 Web->Hello A</h2>  
+        <input type="text" id="Name2" placeholder="Nhập tên của bạn..">
+        <button onclick="hi()">Click</button>
+        <p id="KQ"></p>
+
+        <script>
+            function hi() {
+                const hovaten = document.getElementById("Name2").value.trim();
+                const cut = hovaten.split(" ");
+                const lastname= cut[cut.length-1];
+                document.getElementById("KQ"). textContent = "Hello "+ lastname;
+            }
+        </script>
+</body>
+</html>
